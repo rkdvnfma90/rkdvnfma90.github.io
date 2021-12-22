@@ -1,46 +1,51 @@
-# Chirpy Starter [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)](https://rubygems.org/gems/jekyll-theme-chirpy) [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
-
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders `_includes`, `_layout`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file from the theme's gem. If you have ever installed this theme gem, you can use the command `bundle info --path jekyll-theme-chirpy` to locate these files.
-
-The Jekyll organization claims that this is to leave the ball in the user’s court, but this also results in users not being able to enjoy the out-of-the-box experience when using feature-rich themes.
-
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your Jekyll site. The following is a list of targets:
+# 서버 실행 방법
 
 ```shell
-.
-├── _config.yml
-├── _data
-├── _plugins
-├── _tabs
-└── index.html
+$ bundle install
+$ bundle exec jekyll serve
 ```
 
-In order to save your time, and to prevent you from missing some files when copying, we extract those files/configurations of the latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+Gemfile의 의존성을 설치하고 로컬에서 서버를 띄워 먼저 확인할 수 있다.
 
-## Prerequisites
+<br/>
 
-Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of `Ruby`, `RubyGems`, `Jekyll` and `Bundler`.
+# 글 작성 방법
 
-## Installation
+[체오](https://github.com/datalater/datalater.github.io)의 글을 참조하였습니다 👍
 
-[**Use this template**][use-template] to generate a brand new repository and name it `<GH_USERNAME>.github.io`, where `GH_USERNAME` represents your GitHub username.
-
-Then clone it to your local machine and run:
-
+```markdown
+---
+title: 제목
+date: 2021-12-22
+categories: [Parent, Child] -> 이렇게 `,`를 사용하여 구분할 경우 계층구조를 가진다.
+tags: [typescript] # TAG names should always be lowercase
+image:
+  src: https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566913457/noticon/eh4d0dnic4n1neth3fui.png
+  width: 100 -> 픽셀 단위로 입력한다
+  height: 100 -> 픽셀 단위로 입력한다
+  alt: TypeScript
+---
 ```
-$ bundle
+
+이미지는 [noticon](https://noticon.tammolo.com)에서 찾을 수 있다. 찾을 수 없는 이미지라면 깃허브 `issue`를 활용한 이미지 링크를 사용할 수 있다.
+
+<br/>
+
+
+# 코드블록에 파일경로 및 이름 명시
+
+
+````markdown
+```javascript
+const message = "Hello :)";
 ```
+{: file="path/to/file" }
+````
 
-## Usage
+위와 같은 형식으로 코드블록에 파일경로와 이름을 명시할 수 있다. 주의할 점은 ` ``` `바로 밑줄에 파일명을 명시해야 한다는 점이다.
 
-Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#usage).
+<br/>
 
-## License
+# 배포
 
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[use-template]: https://github.com/cotes2020/chirpy-starter/generate
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+- `origin/main`에 push하면 깃허브 action으로 `pages-deploy.yml`이 실행 된다.
