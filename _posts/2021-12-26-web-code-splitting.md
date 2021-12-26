@@ -2,7 +2,7 @@
 title: 코드 스플리팅
 date: 2021-12-26
 categories: [웹 성능 최적화]
-tags: 
+tags: [웹 성능 최적화, 코드 스플리팅]
 image:
   src: https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1571795671/noticon/ncgxzfzuzo0ygwniagek.png
   width: 100
