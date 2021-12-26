@@ -17,6 +17,7 @@ Gemfile의 의존성을 설치하고 로컬에서 서버를 띄워 먼저 확인
 ---
 title: 제목
 date: 2021-12-22
+published: false -> false일 경우 비공개
 categories: [Parent, Child] -> 이렇게 `,`를 사용하여 구분할 경우 계층구조를 가진다.
 tags: [typescript] # TAG names should always be lowercase
 image:
@@ -27,18 +28,19 @@ image:
 ---
 ```
 
-이미지는 [noticon](https://noticon.tammolo.com)에서 찾을 수 있다. 찾을 수 없는 이미지라면 깃허브 `issue`를 활용한 이미지 링크를 사용할 수 있다.
+- 이미지는 [noticon](https://noticon.tammolo.com)에서 찾을 수 있다. 찾을 수 없는 이미지라면 깃허브 `issue`를 활용한 이미지 링크를 사용할 수 있다.
+- 비공개 글은 
+
 
 <br/>
 
-
 # 코드블록에 파일경로 및 이름 명시
-
 
 ````markdown
 ```javascript
 const message = "Hello :)";
 ```
+
 {: file="path/to/file" }
 ````
 
