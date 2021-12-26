@@ -16,7 +16,7 @@ Gemfile의 의존성을 설치하고 로컬에서 서버를 띄워 먼저 확인
 ```markdown
 ---
 title: 제목
-date: 2021-12-22
+date: 2021-12-26 17:00:00 +0900
 published: false -> false일 경우 비공개
 categories: [Parent, Child] -> 이렇게 `,`를 사용하여 구분할 경우 계층구조를 가진다.
 tags: [typescript] # TAG names should always be lowercase
