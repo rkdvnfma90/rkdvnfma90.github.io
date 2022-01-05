@@ -2,7 +2,7 @@
 title: 폰트 최적화
 date: 2022-01-05 16:35:00 +0900
 categories: [웹 성능 최적화]
-tags: [폰트 최적화]]
+tags: [폰트 최적화]
 image:
   src: https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1571795671/noticon/ncgxzfzuzo0ygwniagek.png
   width: 100
