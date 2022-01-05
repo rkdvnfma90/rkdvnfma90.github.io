@@ -122,9 +122,7 @@ const Component = () => {
 6. Preload 사용
   - 웹에서 CSS가 로드가 되고 CSS를 읽는 순간 명시한 폰트가 필요하다는 것을 알게 되는데 그 시점보다 더 먼저 로드를 시키는 방법이다
   - HTML 파일의 `HEAD` 안에 명시해야 한다.
-    ```html
-    <link rel="preload" href="Your Font.woff2" as="font" type="font/woff2" crossorigin>
-    ```
+    `<link rel="preload" href="Your Font.woff2" as="font" type="font/woff2" crossorigin>`
   - 제대로 사용하기 위해선 `webpack`에서 폰트 Preload 설정을 따로 해주는 것이 좋다. 이 때 [preload-webpack-plugin](https://www.npmjs.com/package/preload-webpack-plugin) 해당 플러그인을 사용한다
 
 
