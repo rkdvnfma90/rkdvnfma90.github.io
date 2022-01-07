@@ -1,7 +1,7 @@
 ---
-title: [SLASH 21 - 실무에서 바로 쓰는 Frontend Clean Code]
+title: SLASH 21 - 실무에서 바로 쓰는 Frontend Clean Code
 date: 2022-01-07 19:12:00 +0900
-categories: [웹 성능 최적화]
+categories: [클린코드]
 tags: [클린코드]
 image:
   src: https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1631965830/noticon/sulndtevazxyzuprippz.png
