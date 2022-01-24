@@ -94,6 +94,7 @@ export default App;
 <br/>
 
 2. 컴포넌트가 마운트 되었을 때 로딩
+
 ```js
 import { useState, Suspense, lazy, useEffect } from 'react';
 
