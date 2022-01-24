@@ -51,7 +51,11 @@ export default App;
 
 이 때 `preloading`을 사용하는 것이다. 지금 생각해 볼 수 있는 방법은 2가지 정도다.
 
-1. 버튼에 마우스를 올렸을 때 로딩
+<br/>
+
+**버튼에 마우스를 올렸을 때 로딩**
+
+<br/>
 
 ```js
 import { useState, Suspense, lazy } from 'react';
@@ -93,7 +97,9 @@ export default App;
 
 <br/>
 
-2. 컴포넌트가 마운트 되었을 때 로딩
+**컴포넌트가 마운트 되었을 때 로딩**
+
+<br/>
 
 ```js
 import { useState, Suspense, lazy, useEffect } from 'react';
@@ -134,7 +140,11 @@ const App = () => {
 export default App;
 ```
 
+<br/>
+
 이렇게 했을 경우 주요 파일들이 모두 로드되고 난 이후 모달 관련된 `1.chunk.js, 2.chunk.js`가 차례대로 로딩 되는 것을 알 수 있다.
+
+<br/>
 
 ![image](https://user-images.githubusercontent.com/52060742/147478486-1bf27c0b-1476-4122-a7b7-b1c751466adf.png)
 
@@ -142,6 +152,8 @@ export default App;
 <br/>
 
 지금은 하나의 컴포넌트만 preloading 하니까 괜찮지만 나중엔 더 많은 컴포넌트들을 preloading 시켜야할 때가 올것이다. 이 때 매번 `import`를 하면 불편하므로 별도의 함수를 만들어서 더 쉽게 관리해보자!
+
+<br/>
 
 ```js
 import { useState, Suspense, lazy, useEffect } from 'react';
