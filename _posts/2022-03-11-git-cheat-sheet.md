@@ -41,4 +41,14 @@ image:
   <img width="905" alt="image" src="https://user-images.githubusercontent.com/52060742/157813545-26dff610-c04a-455d-a693-9dccef2e2088.png">
   - `git merge --no-ff` [merge할 브랜치명] : 이 명령어를 통해 three-way merge를 할 수 있다. 해당 명령어 수행 후 커밋메시지 입력! 
 - 충돌 발생시 해결 후 `git add [충돌해결 한 파일]` -> `git merge --continue`로 merge 진행 (단, fast-forward merge가 아니기 때문에 merge 커밋이 만들어진다.), 만약 merge를 취소하고 싶으면 `git merge --abort`
-
+- 충돌해결 vscode로 진행하기 : `git config --global -e` 명령어로 설정파일을 열고 다음과 같이 추가해준다.
+  ```
+  [merge]
+    tool = vscode
+  [mergetool "vscode"]
+    cmd = code --wait $MERGED
+  ```
+- 충돌 발생 후 `git mergetool`명령어를 사용하여 vscode에서 충돌을 해결할 수 있다.
+- 충돌 해결 후 아래와 같이 해당 파일의 `.orig` 확장자의 파일이 나올 수 있는데 이 파일은 충돌이 발생했을 때의 내용을 담고있는 파일이다.
+  ![image](https://user-images.githubusercontent.com/52060742/158166747-ee985641-29d6-421b-bd73-22586c2b486e.png)
+  이것을 끄기위해 `git config --global mergetool.keepBackup false` 명령어를 실행시켜주자
