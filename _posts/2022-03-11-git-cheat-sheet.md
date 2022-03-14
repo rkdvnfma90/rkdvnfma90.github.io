@@ -40,5 +40,5 @@ image:
   - merge할 때 히스토리를 남기기 위한 방법이다.
   <img width="905" alt="image" src="https://user-images.githubusercontent.com/52060742/157813545-26dff610-c04a-455d-a693-9dccef2e2088.png">
   - `git merge --no-ff` [merge할 브랜치명] : 이 명령어를 통해 three-way merge를 할 수 있다. 해당 명령어 수행 후 커밋메시지 입력! 
-
+- 충돌 발생시 해결 후 `git add [충돌해결 한 파일]` -> `git merge --continue`로 merge 진행 (단, fast-forward merge가 아니기 때문에 merge 커밋이 만들어진다.), 만약 merge를 취소하고 싶으면 `git merge --abort`
 
