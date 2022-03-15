@@ -52,3 +52,18 @@ image:
 - 충돌 해결 후 아래와 같이 해당 파일의 `.orig` 확장자의 파일이 나올 수 있는데 이 파일은 충돌이 발생했을 때의 내용을 담고있는 파일이다.
   ![image](https://user-images.githubusercontent.com/52060742/158166747-ee985641-29d6-421b-bd73-22586c2b486e.png)
   이것을 끄기위해 `git config --global mergetool.keepBackup false` 명령어를 실행시켜주자
+
+<br>
+<br>
+
+## rebase
+
+- three-way merge 상황일 경우 히스토리에 merge 커밋이 남게 된다. 별도의 merge commit이 생기지 않게 하는 방법이 바로 `rebase`이다.
+
+  ![image](https://user-images.githubusercontent.com/52060742/158369984-08870872-0607-4629-ae4e-e95a8b082a86.png)
+
+  위 사진과 같이 three-way merge 상황일 때 `feature A`브랜치를 `master`브랜치 최신 버전으로 rebase를 한다면 아래와 같이 `fast-forward merge`가 가능해진다.
+
+  ![image](https://user-images.githubusercontent.com/52060742/158370283-37303a25-e09b-46d1-84a4-fd4cfa628e46.png)
+- 주의할 점은 `feature A`브랜치에서 나 혼자만 작업하고 있다면 상관없지만 다른 개발자와 함께 `feature A`브랜치에서 작업을 하고 있다면 위험할 수가 있다. 그 이유는 rebase를 하게 되면 해당 `커밋의 포인터를 변경`하게 되는데 포인터의 정보를 변경하게 되면 기존의 커밋을 유지하는 것이 아니라 새로운 커밋을 만들게 된다. (겉으로는 똑같아 보이지만 실제로는 다르다)
+- 그렇기 때문에 이미 히스토리가 원격지에 업로드 되어 있다면 업로드된 히스토리는 절대 `rebase` 하지말자! (내 로컬에 있는 커밋에는 `rebase`를 자유롭게 해도 된다!)
