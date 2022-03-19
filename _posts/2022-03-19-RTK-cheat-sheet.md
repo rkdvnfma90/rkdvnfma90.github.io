@@ -176,7 +176,6 @@ npx create-react-app my-app --template redux-typescript
 <br/>
 
 ## createAction 
-
 액션 생성자 함수 생성
 
 ```ts
@@ -234,3 +233,73 @@ createReducer의 두 번째 파라미터인 리듀서 맵에는 액션 생성자
 
 <br/>
 <br/>
+
+## createSlice
+
+액션과 리듀서를 한번에 생성
+
+```ts
+const todoSlice = createSlice({
+  name: "todo", // 액션 타입 문자열의 prefix
+  initialState: [], // 초기값
+  reducers: { // 리듀서 맵
+    addTodo: {
+      // 리듀서 함수
+      reducer: (state, action) => {
+        state.push(action.payload);
+      },
+      // createAction 함수의 두 번째 파라미터의 콜백 함수라고 보면 된다.
+      prepare: (text: string) => ({
+        payload: {
+          id: generateUUID(),
+          text
+        }
+      })
+    },
+
+    // 리듀서와 액션 생성 함수를 분리하지 않고 사용할 수 있다.
+    removeTodo: (state, action) => {
+      state.splice(
+        state.findIndex(item => item.id === action.payload.id),
+        1
+      );
+    }
+  }
+
+});
+
+// 액션과 리듀서를 아래와 같이 가져올 수 있다.
+const { addTodo, removeTodo } = todoSlice.actions;
+const { reducer } = todoSlice;
+```
+
+<br/>
+<br/>
+
+## createSelector
+
+리덕스 스토어에서 state 값을 조회하기 위해 사용한다. 
+
+여기서 selector란 의미는 Redux에서 어떤 state를 기반으로 새로운 state를 리턴하는 함수를 말한다. 예를 들어 `Todo 리스트에서 완료된 것 만 필터링`할 때 보통 사용하곤 한다.
+
+RTK의 createSelector는 reselect 라이브러리의 createSelector와 같다. (메모이제이션 지원)
+
+[화해 블로그 참조](http://blog.hwahae.co.kr/all/tech/tech-tech/6946/)
+```ts
+const shopItemsSelector = state => state.shop.items;
+const taxPercentSelector = state => state.shop.taxPercent;
+
+// subtotal 값을 메모이제이션
+const subtotalSelector = createSelector(
+  shopItemsSelector,
+  items => items.reduce((subtotal, item) => subtotal + item.value, 0)
+);
+
+const totalSelector = createSelector(
+  subtotalSelector,
+  taxSelector,
+  (subtotal, tax) => ({ total: subtotal + tax })
+);
+```
+
+createSelector를 호출할 때 파라미터의 개수제한은 없지만 가장 마지막 파라미터는 상태 객체를 리턴할 콜백 함수가 들어가야 한다. 이 콜백 함수의 파라미터는 앞에 있는 파라미터에서 리턴한 객체가 차례대로 위치한다.
